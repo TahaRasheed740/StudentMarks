@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Student Details</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <form action="/submit-students" method="post">
+        <% for(var i = 0; i < totalStudents; i++) { %>
+        <div>
+            <label for="studentName<%= i %>">
+                Student <%= i+1 %> Name:</franz>
+                <input type="text" id="studentName<%= i %>" name="studentName<%= i %>" required>
+                <label for="obtainedMarks<%= i %>">Marks:</label>
+                <input type="number" id="obtainedMarks<%= i %>" name="obtainedMarks<%= i %>" required min="0" max="100">
+        </div>
+        <% } %>
+        <button type="submit">Submit Marks</button>
+    </form>
+</body>
+</html>

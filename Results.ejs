@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Results</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+    <h1>Student Results</h1>
+    <% if (stats) { %>
+    <div class="stats">
+        <h2>Statistics</h2>
+        <ul>
+            <li>Average Marks: <%= stats.AverageMarks.toFixed(2) %></li>
+            <li>Maximum Marks: <%= stats.MaxMarks.toFixed(2) %></li>
+            <li>Minimum Marks: <%= stats.MinMarks.toFixed(2) %></li>
+        </ul>
+    </div>
+
+    <% } %>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Marks</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% students.forEach(function(student) { %>
+                <tr>
+                    <td><%= student.StudentName %></td>
+                    <td><%= student.ObtainedMarks.toFixed(2) %></td>
+                    <td><%= student.Grade %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

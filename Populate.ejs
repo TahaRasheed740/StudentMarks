@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Student Details</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+<body>
+    <form action="/submit-students" method="post">
+        <% for(let i = 0; i < totalStudents; i++) { %>
+            <div>
+                <label for="studentName<%= i %>">Student <%= i + 1 %> Name:</label>
+                <input type="text" id="studentName<%= i %>" name="studentName<%= i %>" required>
+                <label for="obtainedMarks<%= i %>">Marks:</label>
+                <input type':"number" id="obtainedMarks<%= i %>" name="obtainedMarks<%= i %>" required min="0" max="100">
+            </div>
+        <% } %>
+        <button type="submit">Submit Marks</button>
+    </form>
+</body>
+</html>
